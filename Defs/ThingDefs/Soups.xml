@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef Name="mdpm_SoupBase" ParentName="DrugBase" Abstract="True">
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+			<Mass>0.05</Mass>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+		<thingCategories Inherit="False">
+			<li>RawMutagen</li>
+		</thingCategories>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+        <stackLimit>50</stackLimit>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1000</listOrder>
+			</li>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>4</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_SoupBase">
+        <defName>mdpm_mutagenicSoup</defName>
+        <label>Mutagenic Soup</label>
+        <description>A soup of chaotic mutagens. Ingesting them will produce random and powerful mutations.</description>
+		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Things/Item/Drug/MutagenicSoup</texPath>
+		</graphicData>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>75</MarketValue>
+			<MutaniteConcentration>0.07</MutaniteConcentration>
+		</statBases>
+        <ingestible>
+            <foodType>Processed</foodType>
+			<drugCategory>Medical</drugCategory>
+			<baseIngestTicks>120</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_GiveHediffRandom">
+					<hediffDefs>
+						<li>FullRandomTFAnyOutcome</li>
+					</hediffDefs>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<!-- <recipeMaker>
+			<effectWorking>Cook</effectWorking>
+			<soundWorking>Recipe_Brewing</soundWorking>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<recipeUsers>
+				<li>DrugLab</li>
+				<li>FueledStove</li>
+				<li>ElectricStove</li>
+			</recipeUsers>
+			<bulkRecipeCount>4</bulkRecipeCount>
+			<researchPrerequisite>mdpm_mutagenicCooking</researchPrerequisite>
+		</recipeMaker>
+		<costList>
+			<TFMilk>10</TFMilk>
+			<TFEgg>5</TFEgg>
+		</costList> -->
+    </ThingDef>
+
+	<RecipeDef>
+        <defName>mdpm_makemutagenicSoupFromChaobulb</defName>
+        <label>make mutagenic soup from chaobulb seedpods</label>
+        <description>Press chaobulb seedpopds into mutagenic soups.</description>
+        <jobString>Making mutagenic soup.</jobString>
+		<researchPrerequisite>mdpm_mutagenicPressing</researchPrerequisite>
+        <workAmount>400</workAmount>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chaobulb</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <products>
+            <mdpm_mutagenicSoup>5</mdpm_mutagenicSoup>
+        </products>
+        <defaultIngredientFilter>
+            <thingDefs>
+				<li>Chaobulb</li>
+			</thingDefs>
+        </defaultIngredientFilter>
+        <workSkill>Intellectual</workSkill>
+        <recipeUsers>
+            <li>FueledStove</li>
+            <li>ElectricStove</li>
+			<li>mdpm_mutagenicKitchen</li>
+        </recipeUsers>
+    </RecipeDef>
+
+	<RecipeDef>
+        <defName>mdpm_makemutagenicSoupFromAnimalProducts</defName>
+        <label>make mutagenic soup from animal products</label>
+        <description>Mix cowmporh milk and chookmoprh eggs into mutagenic soups.</description>
+        <jobString>Making mutagenic soup.</jobString>
+		<researchPrerequisite>mdpm_mutagenicCooking</researchPrerequisite>
+        <workAmount>300</workAmount>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>TFMilk</li>
+                    </thingDefs>
+                </filter>
+                <count>7</count>
+            </li>
+			<li>
+                <filter>
+                    <thingDefs>
+                        <li>TFEgg</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+        </ingredients>
+        <products>
+            <mdpm_mutagenicSoup>5</mdpm_mutagenicSoup>
+        </products>
+        <defaultIngredientFilter>
+            <thingDefs>
+				<li>TFMilk</li>
+				<li>TFEgg</li>
+			</thingDefs>
+        </defaultIngredientFilter>
+        <workSkill>Intellectual</workSkill>
+        <recipeUsers>
+            <li>mdpm_mutagenicKitchen</li>
+        </recipeUsers>
+    </RecipeDef>
+
+	<RecipeDef>
+        <defName>mdpm_makemutagenicSoupFromMutanite</defName>
+        <label>make mutagenic soup from mutanite</label>
+        <description>Dissolve mutanite into mutagenic soups.</description>
+        <jobString>Making mutagenic soup.</jobString>
+		<researchPrerequisite>mdpm_mutagenicDissolving</researchPrerequisite>
+        <workAmount>300</workAmount>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Mutanite</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <mdpm_mutagenicSoup>1</mdpm_mutagenicSoup>
+        </products>
+        <defaultIngredientFilter>
+            <thingDefs>
+				<li>Mutanite</li>
+			</thingDefs>
+        </defaultIngredientFilter>
+        <workSkill>Intellectual</workSkill>
+        <recipeUsers>
+            <li>mdpm_mutagenicKitchen</li>
+        </recipeUsers>
+    </RecipeDef>
+
+	<ThingDef ParentName="mdpm_SoupBase">
+        <defName>mdpm_antigenSoup</defName>
+        <label>Antigen Soup</label>
+        <description>A soup of antigens. Ingesting this will stop mutation change but offer no long term protection.</description>
+		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Things/Item/Drug/GlowvineSoup</texPath>
+		</graphicData>
+		<statBases>
+			<WorkToMake>200</WorkToMake>
+			<MarketValue>85</MarketValue>
+			<MutaniteConcentration>0</MutaniteConcentration>
+		</statBases>
+        <ingestible>
+            <foodType>Processed</foodType>
+			<drugCategory>Medical</drugCategory>
+			<baseIngestTicks>120</baseIngestTicks>
+			<chairSearchRadius>0</chairSearchRadius>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AntigenEffective</hediffDef>
+					<severity>0.04</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<!-- <recipeMaker>
+			<effectWorking>Cook</effectWorking>
+			<soundWorking>Recipe_Brewing</soundWorking>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<recipeUsers>
+				<li>DrugLab</li>
+				<li>FueledStove</li>
+				<li>ElectricStove</li>
+			</recipeUsers>
+			<bulkRecipeCount>4</bulkRecipeCount>
+			<researchPrerequisite>mdpm_mutagenicPressing</researchPrerequisite>
+		</recipeMaker>
+		<costList>
+			<Glowvine>20</Glowvine>
+		</costList> -->
+    </ThingDef>
+
+	<RecipeDef>
+        <defName>mdpm_makeAntigenSoupFromGlowvine</defName>
+        <label>make antigen soup from glowvine seedpods</label>
+        <description>Press glowvine seedpopds into antigen soups.</description>
+        <jobString>Making antigen soup.</jobString>
+		<researchPrerequisite>mdpm_mutagenicPressing</researchPrerequisite>
+        <workAmount>400</workAmount>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Glowvine</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+        </ingredients>
+        <products>
+            <mdpm_antigenSoup>1</mdpm_antigenSoup>
+        </products>
+        <defaultIngredientFilter>
+            <thingDefs>
+				<li>Glowvine</li>
+			</thingDefs>
+        </defaultIngredientFilter>
+        <workSkill>Intellectual</workSkill>
+        <recipeUsers>
+            <li>FueledStove</li>
+            <li>ElectricStove</li>
+            <li>mdpm_mutagenicKitchen</li>
+        </recipeUsers>
+    </RecipeDef>
+
+</Defs>

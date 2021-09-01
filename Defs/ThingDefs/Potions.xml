@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Abstract="true" ParentName="TransformerBase" Name="mdpm_potionBase">
+        <statBases>
+			<WorkToMake>800</WorkToMake>
+			<MarketValue>100</MarketValue>
+		</statBases>
+		<techLevel>Medieval</techLevel>
+        <recipeMaker>
+			<skillRequirements>
+				<Intellectual>5</Intellectual>
+			</skillRequirements>
+			<recipeUsers>
+				<li>mdpm_mutagenicKitchen</li>
+			</recipeUsers>
+		</recipeMaker>
+		<thingCategories Inherit="False">
+			<li>mdpm_Potions</li>
+		</thingCategories>
+		<stackLimit>10</stackLimit>
+        <costList Inherit="false">
+			<mdpm_mutagenicSoup>5</mdpm_mutagenicSoup>
+            <mdpm_animalParts>5</mdpm_animalParts>
+		</costList>
+        <comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>60</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+    <ThingDef ParentName="mdpm_potionBase">
+		<defName>mdpm_randomPotion</defName>
+		<label>mutagenic potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random mutations and can fully transform the user.</description>
+		<graphicData>
+			<texPath>Things/Item/Drug/GreenMutagenicPotion</texPath>
+		</graphicData>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Animal</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>mdpm_mutagenicMixing</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+<!-- Biomes -->
+
+    <ThingDef Abstract="True" ParentName="mdpm_potionBase" Name="mdpm_biomePotionBase">
+		<graphicData>
+			<texPath>Things/Item/Drug/YellowMutagenicPotion</texPath>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>mdpm_mutagenicMixingBiomes</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_biomePotionBase">
+		<defName>mdpm_randomAridPotion</defName>
+		<label>mutagenic arid potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random mutations suited for arid environments and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<severity>1.00</severity>
+					<fullTf>true</fullTf>
+					<morphCategory>Arid</morphCategory>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_biomePotionBase">
+		<defName>mdpm_randomColdPotion</defName>
+		<label>mutagenic cold potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random mutations suited for cold environments and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<fullTf>true</fullTf>
+					<morphCategory>Cold</morphCategory>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_biomePotionBase">
+		<defName>mdpm_randomTemperatePotion</defName>
+		<label>mutagenic temperate potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random mutations suited for temperate environments and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<fullTf>true</fullTf>
+					<morphCategory>Temperate</morphCategory>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_biomePotionBase">
+		<defName>mdpm_randomTropicalPotion</defName>
+		<label>mutagenic tropical potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random mutations suited for tropical environments and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<fullTf>true</fullTf>
+					<morphCategory>Tropical</morphCategory>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+<!-- Roles -->
+
+    <ThingDef Abstract="True" ParentName="mdpm_potionBase" Name="mdpm_rolePotionBase">
+		<graphicData>
+			<texPath>Things/Item/Drug/RedMutagenicPotion</texPath>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>mdpm_mutagenicMixingRoles</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_rolePotionBase">
+		<defName>mdpm_randomCombatPotion</defName>
+		<label>mutagenic combat potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random combat-oriented mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<severity>1.00</severity>
+					<fullTf>true</fullTf>
+					<morphCategory>Combat</morphCategory>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_rolePotionBase">
+		<defName>mdpm_randomProductionPotion</defName>
+		<label>mutagenic production potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random production-oriented mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<severity>1.00</severity>
+					<fullTf>true</fullTf>
+					<morphCategory>Production</morphCategory>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_rolePotionBase">
+		<defName>mdpm_randomCrafterPotion</defName>
+		<label>mutagenic crafter potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random crafting-oriented mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<severity>1.00</severity>
+					<fullTf>true</fullTf>
+					<morphCategory>Crafter</morphCategory>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_rolePotionBase">
+		<defName>mdpm_randomSocialPotion</defName>
+		<label>mutagenic social potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes random social-oriented mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<severity>1.00</severity>
+					<fullTf>true</fullTf>
+					<morphCategory>Social</morphCategory>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+<!--Genus-->
+
+    <ThingDef Abstract="True" ParentName="mdpm_potionBase" Name="mdpm_genusPotionBase">
+		<graphicData>
+			<texPath>Things/Item/Drug/BlueMutagenicPotion</texPath>
+		</graphicData>
+		<recipeMaker>
+			<researchPrerequisite>mdpm_mutagenicMixingGenus</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomFarmPotion</defName>
+		<label>mutagenic farm potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes domestic farm animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff">
+					<severity>1.00</severity>
+					<fullTf>true</fullTf>
+					<morphCategory>Farm</morphCategory>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomAvianPotion</defName>
+		<label>mutagenic avian potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes avian animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Avian</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomBovidPotion</defName>
+		<label>mutagenic bovid potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes bovid animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Bovid</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomCanidPotion</defName>
+		<label>mutagenic canid potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes canid animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Canid</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomCervidPotion</defName>
+		<label>mutagenic cervid potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes cervid animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Cervid</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomFelinePotion</defName>
+		<label>mutagenic feline potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes feline animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Feline</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomRodentPotion</defName>
+		<label>mutagenic rodent potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes rodent animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Rodent</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+    <ThingDef ParentName="mdpm_genusPotionBase">
+		<defName>mdpm_randomReptilePotion</defName>
+		<label>mutagenic reptilian potion</label>
+		<description>A glass flak filled with mutagens and animal parts that causes reptilian animal mutations and can fully transform the user.</description>
+		<ingestible>
+			<outcomeDoers>
+				<li Class="Pawnmorph.IngestionOutcomeDoer_AddMorphTf">
+					<animalClass>Reptile</animalClass>
+					<severity>1.00</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+</Defs>

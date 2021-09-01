@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+        <xpath>Defs/ThingDef[defName="MedicineHerbal"]/statBases</xpath>
+        <value>
+            <Nutrition>0.05</Nutrition>
+        </value>
+    </Operation>
+
+    <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+        <xpath>Defs/ThingDef[defName="MedicineHerbal"]</xpath>
+        <value>
+            <ingestible>
+                <foodType>Plant</foodType>
+                <preferability>NeverForNutrition</preferability>
+                <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+            </ingestible>
+        </value>
+    </Operation> -->
+
+</Patch>

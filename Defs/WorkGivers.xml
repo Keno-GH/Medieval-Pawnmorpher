@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <WorkGiverDef>
+        <defName>mdpm_DoBillsAtMutagenicKitchen</defName>
+        <label>brewing mutagenics</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Crafting</workType>
+        <workTags>
+            <li>Intellectual</li>
+        </workTags>
+        <priorityInType>90</priorityInType>
+        <fixedBillGiverDefs>
+            <li>mdpm_mutagenicKitchen</li>
+        </fixedBillGiverDefs>
+        <verb>produce mutagenics</verb>
+        <gerund>producing mutagenics at</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+</Defs>

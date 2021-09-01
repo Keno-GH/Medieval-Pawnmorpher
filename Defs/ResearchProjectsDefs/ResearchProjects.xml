@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicPressing</defName>
+    <label>Mutagen press</label>
+    <description>Process mutagenic fruits into crude soups at a stove or mutagenics Kitchen.</description>
+    <baseCost>400</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>MutagenicPlantSowing</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.75</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_meatProcessing</defName>
+    <label>meat Processing</label>
+    <description>Cut specific parts of animal meats and sanitize them to create ingredients for mutagenic potions at a butcher table or stove.</description>
+    <baseCost>150</baseCost>
+    <techLevel>Medieval</techLevel>
+     <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>1.50</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicKitchenResearch</defName>
+    <label>mutagenics Kitchen</label>
+    <description>Create a specialized workbench with a cauldron to further process mutagenic products.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicPressing</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.75</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicDissolving</defName>
+    <label>mutanite dissolving</label>
+    <description>Process mutanite into mutagenic soups at a mutagenics kitchen.</description>
+    <baseCost>400</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicKitchenResearch</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicCooking</defName>
+    <label>Mutagen cooking</label>
+    <description>Process mutagenic animal products into mutagenic soups at a mutagenics kitchen.</description>
+    <baseCost>400</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicKitchenResearch</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.75</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicMixing</defName>
+    <label>Mutagen mixing</label>
+    <description>Process and purifies mutagenic soup to make a controlled potion at a mutagenics kitchen.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicKitchenResearch</li>
+        <li>mdpm_meatProcessing</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>1.50</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicMixingBiomes</defName>
+    <label>Biome Mutagenic Potions</label>
+    <description>Process and purifies mutagenic soups and combine them with animal parts to make mutagenic potions intended for mutations suited for specific environments at a mutagenics kitchen.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicMixing</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>1.50</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicMixingRoles</defName>
+    <label>Roles Mutagenic Potions</label>
+    <description>Process and purifies mutagenic soups and combine them with animal parts to make mutagenic potions intended for mutations suited for specific roles at a mutagenics kitchen.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicMixing</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>0.75</researchViewY>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>mdpm_mutagenicMixingGenus</defName>
+    <label>Genus Mutagenic Potions</label>
+    <description>Process and purifies mutagenic soups and combine them with animal parts to make mutagenic potions for mutations from a genetic family at a mutagenics kitchen.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+        <li>mdpm_mutagenicMixing</li>
+    </prerequisites>
+    <tab>mdpm_medievalPawnmorpherTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>2.25</researchViewY>
+  </ResearchProjectDef>
+
+</Defs>

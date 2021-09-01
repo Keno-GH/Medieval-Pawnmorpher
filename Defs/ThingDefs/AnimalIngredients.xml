@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="OrganicProductBase">
+        <defName>mdpm_animalParts</defName>
+        <label>animal parts</label>
+        <description>A mix of animal parts mixed with sanitizing liquids. They are no longer edible. A vital part in the production of mutagenic potions.</description>
+        <statBases>
+            <MarketValue>3.0</MarketValue>
+            <Mass>0.05</Mass>
+        </statBases>
+        <thingCategories Inherit="False">
+			<li>Manufactured</li>
+		</thingCategories>
+        <graphicData>
+            <graphicClass>Graphic_StackCount</graphicClass>
+			<texPath>Things/Item/Resource/AnimalSoup</texPath>
+		</graphicData>
+        <comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>30</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+    </ThingDef>
+
+    <RecipeDef>
+        <defName>mdpm_makeAnimalParts</defName>
+        <label>make animal parts with meat</label>
+        <description>Make animal parts by cutting specific pieces from meats and animal products and combining them with sanitizing liquids.</description>
+        <jobString>Making animal parts.</jobString>
+        <workAmount>900</workAmount>
+        <researchPrerequisite>mdpm_meatProcessing</researchPrerequisite>
+        <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>MeatRaw</li>
+                    </categories>
+                </filter>
+                <count>1</count>
+            </li>
+            <!-- <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineHerbal</li>
+                    </thingDefs>
+                </filter>
+                <count>0.05</count>
+            </li> -->
+        </ingredients>
+        <products>
+            <mdpm_animalParts>5</mdpm_animalParts>
+        </products>
+        <fixedIngredientFilter>
+            <categories>
+                <li>MeatRaw</li>
+            </categories>
+        </fixedIngredientFilter>
+        <defaultIngredientFilter>
+            <categories>
+                <li>Foods</li>
+            </categories>
+        </defaultIngredientFilter>
+        <workSkill>Intellectual</workSkill>
+        <recipeUsers>
+            <li>TableButcher</li>
+            <li>FueledStove</li>
+            <li>ElectricStove</li>
+            <li>mdpm_mutagenicKitchen</li>
+        </recipeUsers>
+    </RecipeDef>
+
+</Defs>

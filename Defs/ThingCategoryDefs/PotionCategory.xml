@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingCategoryDef>
+        <defName>mdpm_Potions</defName>
+        <label>Potions</label>
+        <parent>Drugs</parent>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+        <iconPath>UI/Icons/ThingCategories/Drugs</iconPath>
+    </ThingCategoryDef>
+
+</Defs>
