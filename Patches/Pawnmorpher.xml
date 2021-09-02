@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+        <xpath>Defs/ResearchProjectDef[defName="MutagenicPlantSowing"]</xpath>
+        <value>
+            <techLevel>Neolithic</techLevel>
+        </value>
+    </Operation>
+
+</Patch>

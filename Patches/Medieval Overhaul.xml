@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>Oken.MedievalPawnmorpher</modId>
+        <key>togglemedievaloverhaulcrosscompt</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.FindMod">
+                <mods>
+                    <li>Medieval Overhaul</li>
+                </mods>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                        <xpath>Defs/ResearchProjectDef[defName="MutagenicPlantSowing"]</xpath>
+                        <safetyDepth>1</safetyDepth>
+                        <value>
+                            <prerequisites><li>DankPyon_BasicAgriculture</li></prerequisites>
+                        </value>
+                    </Operation>
+                    <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                        <xpath>Defs/ResearchProjectDef[defName="mdpm_mutagenicPressing"]</xpath>
+                        <safetyDepth>1</safetyDepth>
+                        <value>
+                            <prerequisites><li>DankPyon_BasicCooking</li></prerequisites>
+                        </value>
+                    </Operation>
+                    <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                        <xpath>Defs/ResearchProjectDef[defName="mdpm_meatProcessing"]</xpath>
+                        <safetyDepth>1</safetyDepth>
+                        <value>
+                            <prerequisites><li>DankPyon_IntermediateCooking</li></prerequisites>
+                        </value>
+                    </Operation>
+                    <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                        <xpath>Defs/ResearchProjectDef[defName="mdpm_mutagenicKitchenResearch"]</xpath>
+                        <safetyDepth>1</safetyDepth>
+                        <value>
+                            <prerequisites><li>DankPyon_StewPot</li></prerequisites>
+                        </value>
+                    </Operation>
+                    <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                        <xpath>Defs/ResearchProjectDef[defName="mdpm_mutagenicMixing"]</xpath>
+                        <safetyDepth>1</safetyDepth>
+                        <value>
+                            <prerequisites><li>DankPyon_Alchemy</li></prerequisites>
+                        </value>
+                    </Operation>
+                    <Operation Class="XmlExtensions.PatchOperationSafeAdd">
+                        <xpath>Defs/ResearchProjectDef[defName="mdpm_mutagenicCooking"]</xpath>
+                        <safetyDepth>1</safetyDepth>
+                        <value>
+                            <prerequisites><li>DankPyon_IntermediateCooking</li></prerequisites>
+                        </value>
+                    </Operation>
+                    <!--As many operations as you want-->
+                </caseTrue>
+            </Operation>
+            <!--As many operations as you want-->
+        </caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.CreateSettings">
+        <modId>Oken.MedievalPawnmorpher</modId>
+        <label>Medieval Pawnmorpher</label>
+        <settings>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Restart Required!</text>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>togglemedievaloverhaulcrosscompt</key>
+                <label>Apply research patches for Medieval Overhaul</label>
+                <tooltip>Makes several research projects from Medieval Pawnmorpher have prerequisites from Medieval Overhaul, making up for a more immersive and logical progression. It is recommended that you use a mod like ResearchPal or Dubs Mint Menu that creates a research queue automatically to fulfill a research project's prerequisites.</tooltip>
+            </li>
+        </settings>
+    </Operation>
+
+
+</Patch>

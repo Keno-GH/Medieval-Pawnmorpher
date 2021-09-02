@@ -6,7 +6,7 @@
     <label>Mutagen press</label>
     <description>Process mutagenic fruits into crude soups at a stove or mutagenics Kitchen.</description>
     <baseCost>400</baseCost>
-    <techLevel>Medieval</techLevel>
+    <techLevel>Neolithic</techLevel>
     <prerequisites>
         <li>MutagenicPlantSowing</li>
     </prerequisites>
